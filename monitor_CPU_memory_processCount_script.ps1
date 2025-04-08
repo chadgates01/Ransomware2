@@ -1,7 +1,5 @@
-# Define the log file path
 $LogFile = "C:\Users\student\Desktop\monitor_log.txt"
 
-# Function to monitor running processes
 function Monitor-Processes {
     Write-Output "***** Process Monitoring *****"
     Write-Host "***** Process Monitoring *****"
@@ -14,7 +12,6 @@ function Monitor-Processes {
     Write-Host "------------------------------------------------------------"
 }
 
-# Function to monitor CPU usage
 function Monitor-CPU {
     Write-Output "***** CPU Usage Monitoring *****"
     Write-Host "***** CPU Usage Monitoring *****"
@@ -25,7 +22,6 @@ function Monitor-CPU {
     Write-Host "------------------------------------------------------------"
 }
 
-# Function to monitor RAM usage
 function Monitor-RAM {
     Write-Output "***** RAM Usage Monitoring *****"
     Write-Host "***** RAM Usage Monitoring *****"
@@ -38,19 +34,16 @@ function Monitor-RAM {
     Write-Host "------------------------------------------------------------"
 }
 
-# Start monitoring
 Write-Output "Starting Windows Resource Monitor..."
 Write-Host "Logs saved to: $LogFile"
 Write-Output "Logs saved to: $LogFile"
 Write-Host "Logs saved to: $LogFile"
 
-# Continuous monitoring loop
 while ($true) {
     $TimeStamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     Write-Output "********** Monitoring at $TimeStamp **********"
     Write-Host "********** Monitoring at $TimeStamp **********"
 
-    # Log to console and to file
     Monitor-Processes | Tee-Object -FilePath $LogFile -Append
     Monitor-CPU | Tee-Object -FilePath $LogFile -Append
     Monitor-RAM | Tee-Object -FilePath $LogFile -Append
